@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>المدونة - Ahmed Abdalgayed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            color: #fff;
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+        }
+
+        section:nth-child(odd) {
+            background: linear-gradient(135deg, #1b263b, #415a77);
+        }
+
+        .navbar {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00b4d8;
+        }
+
+        .page-title {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 150px 30px 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00b4d8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0077b6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="page-title">المدونة</div>
+        <div>#المبرمج احمد عبدالجيد</div>
+        <div class="logo">Dreamer</div>
+    </div>
+
+    <!-- Blog Section -->
+    <section>
+        <div class="grid" id="blog-container">
+            <!-- المقالات هتظهر هنا -->
+        </div>
+    </section>
+
+    <script>
+        // ✨ ده كود عرض المقالات تلقائيًا
+        const posts = [
+            {
+                title: "مقال 1",
+                description: "مقال عن كذا كذا...",
+                id: 1
+            },
+            {
+                title: "مقال 2",
+                description: "مقال عن حاجة تانية...",
+                id: 2
+            },
+
+            {
+                title: "ازاي قدرت اخلي الموقع يتصدر نتائج البحث في 24 ساعة فقط",
+                description: "هتديك خلاصة خبرتي ، واعرفك ازاي رفعت موقع وانتشر بعدها بيوم واحد بس وبقى بيتصدر جوجل",
+                id: 3
+            }
+        ];
+
+        const container = document.getElementById("blog-container");
+
+        posts.forEach(post => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+    <h3>${post.title}</h3>
+    <p>${post.description}</p>
+    <a class="btn" href="post.html?id=${post.id}">أضغط لعرض المقال</a>
+`;
+            container.appendChild(card);
+        });
+
+
+        /*
+        ✅ علشان تضيف مقال:
+        - ضيف عنصر جديد في مصفوفة posts
+        - وعدّل العنوان والوصف والرابط
+        */
+    </script>
+</body>
+
+</html>

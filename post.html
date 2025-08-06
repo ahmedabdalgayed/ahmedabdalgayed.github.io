@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل المقال - Ahmed Abdalgayed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            color: #fff;
+            background: linear-gradient(135deg, #1b263b, #415a77);
+        }
+
+        .navbar {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00b4d8;
+        }
+
+        .page-title {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .container {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+            padding-top: 130px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="page-title">تفاصيل المقال</div>
+        <div>#المبرمج احمد عبدالجيد</div>
+        <div class="logo">Dreamer</div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="container">
+        <h1 id="title">جارٍ تحميل المقال...</h1>
+        <div class="content" id="content"></div>
+    </div>
+
+    <script>
+        // ✅ هنا مصفوفة كل المقالات
+        const posts = {
+            1: {
+                title: "أول مقال في المدونة",
+                content: `
+                    <p>ده أول مقال ليّا في المدونة، بحكي فيه عن بداية رحلتي مع البرمجة من أيام ما كنت مبتدئ تمامًا...</p>
+                    <p>اتعلمت HTML من فيديوهات على اليوتيوب وبدأت أنفذ مشاريع صغيرة وهكذا...</p>
+                `
+            },
+            2: {
+                title: "ثاني مقال - كيف تبدأ في البرمجة",
+                content: `
+                    <p>لو أنت لسه مبتدئ، دي خطوات بسيطة تخليك تبدأ صح...</p>
+                    <p>ابدأ بـ HTML → بعدين CSS → بعدين JavaScript</p>
+                `
+            },
+
+            3: {
+                title: "ازاي قدرت اخلي الموقع يتصدر نتائج البحث في 24 ساعة فقط",
+                content: ` <p>
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                    lorelkjgfjfdjgjdf jg jgjf jgfod jgoi oifdgoii ofjiooihihdiufhiu ahiugh iur hgoia hguihaiugh oiaiugh iuahiu giuahru ghiufhaiugh iuahgui hhjhvhghgfhg highruiahg iuahrgiuhgjknfdgjreg huirhiuoiuwoiruaeoit goiurase gra oighr ahkjghfkjh gapi igh lkhfj   hifoh ishfiodhsgoi hoidhg hghoi iohoigoiaghfdkngfldkag lghagjkagjgah     fkjdhgkjfdh  jkjgfdajfgaewoiowpryoiioirfyahfkjafkupqe[poipfof] السلام عليكم النهارده نتعلم عمل موقع يتصدر نتائج البحث ، اولا صل على النبي
+                </p>
+                `
+            }
+        };
+
+        // ✅ قراءة ID المقال من الرابط
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        const post = posts[id];
+
+        // ✅ عرض المقال في الصفحة
+        if (post) {
+            document.getElementById("title").innerHTML = post.title;
+            document.getElementById("content").innerHTML = post.content;
+        } else {
+            document.getElementById("title").innerHTML = "المقال غير موجود";
+            document.getElementById("content").innerHTML = "<p>عذرًا، لم نجد هذا المقال.</p>";
+        }
+
+        /*
+        💡 علشان تضيف مقالات جديدة:
+        - روح عند مصفوفة posts
+        - ضيف عنصر جديد بالمفتاح (مثلاً 3:)
+        - اكتب العنوان والمحتوى بداخله
+        - استخدم في blog.html رابط زي: post.html?id=3
+        */
+    </script>
+</body>
+
+</html>

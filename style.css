@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: #fff;
 }
 
@@ -135,7 +135,7 @@ section:nth-child(odd) {
 }
 
 .service-box p {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 10px;
     color: #ddd;
 }
@@ -331,4 +331,9 @@ section h2 {
     right: 15px;
     font-size: 22px;
     cursor: pointer;
+
+}
+.p123 {
+    font-size: 19px;
+    margin-top: 20px;
 }

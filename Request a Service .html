@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اطلب خدمة — أحمد عبدالجيد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #0ea5a4;
+            --bg-overlay: rgba(0, 0, 0, 0.4);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(180deg, #0f172a 100%, #071024 100%);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px;
+            border-radius: 14px;
+            background: var(--bg-overlay);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .hero .left {
+            flex: 1;
+            min-width: 260px;
+            text-align: right;
+        }
+
+        .hero h1 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
+
+        .hero p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        /* Services + form layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 18px;
+            border-radius: 12px;
+        }
+
+        .services ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .services li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.04);
+        }
+
+        .price {
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        input[type=text],
+        input[type=email],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: transparent;
+            color: var(--text-main);
+            outline: none;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #021;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+        }
+
+        .muted {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+        }
+
+        /* جعل الخدمات على اليمين والفورم على الشمال */
+        .services {
+            grid-column: 1;
+        }
+
+        .form {
+            grid-column: 2;
+        }
+
+        /* Responsive */
+        @media (max-width:900px) {
+            .grid {
+                grid-template-columns: 1fr;
+                align-items: start;
+            }
+
+            .services {
+                grid-column: 1;
+                order: 0;
+            }
+
+            .form {
+                grid-column: 1;
+                order: 1;
+            }
+
+            .hero {
+                padding: 18px;
+            }
+
+            .hero h1 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width:420px) {
+            body {
+                padding: 14px;
+            }
+
+            .hero h1 {
+                font-size: 16px;
+            }
+
+            .badge {
+                padding: 5px 8px;
+            }
+        }
+
+        /* small helpers */
+        .center {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .success {
+            background: rgba(16, 185, 129, 0.12);
+            padding: 10px;
+            border-radius: 8px;
+            color: #a7f3d0;
+        }
+
+        /* visual declutter */
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .services li {
+            border-bottom-color: rgba(255, 255, 255, 0.03);
+            padding: 12px 0;
+        }
+
+
+        option {
+            background-color: #0f172a;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- بداية الهيد -->
+        <div class="hero" role="banner" aria-label="اطلب خدمة - مقدمة">
+            <div class="left">
+                <div class="badge">اطلب خدمة مباشرة — تصميم & تطوير & SEO</div>
+                <h1>خدمات تصميم وتطوير الويب — أحمد عبدالجيد</h1>
+                <p class="muted">أقدم خدمات تصميم مواقع شخصية وتجارية، تطوير واجهات تفاعلية، وتحسين محركات البحث. أسعار
+                    تبدأ من <strong>1000 - 1500 جنيه</strong> للموقع البسيط.</p>
+            </div>
+            <div class="right center" style="text-align:right">
+                <div>
+                    <p class="muted" style="margin:0">جاهز تبدأ؟</p>
+                    <p style="margin:6px 0 0;font-weight:600">ارسل طلبك الان من خلال النموذج</p>
+                </div>
+            </div>
+        </div>
+        <!-- نهاية الهيد -->
+
+        <div class="grid">
+            <!-- الخدمات على اليمين -->
+            <section class="card services" aria-labelledby="services-title">
+                <h2 id="services-title">الخدمات اللي بقدمها</h2>
+                <ul>
+                    <li>
+                        <strong>تصميم مواقع شخصية وتجارية</strong>
+                        <div class="muted">Landing page، صفحات تعريفيّة، نماذج أعمال.</div>
+                    </li>
+                    <li>
+                        <strong>تطوير مواقع بــ HTML / CSS / JS</strong>
+                        <div class="muted">واجهات تفاعلية وسريعة قابلة للتعديل والانتاج.</div>
+                    </li>
+                    <li>
+                        <strong>تعديل وتحسين مواقع قائمة</strong>
+                        <div class="muted">تحسين الأداء، تصحيحات، إضافة صفحات جديدة.</div>
+                    </li>
+                    <li>
+                        <strong>تحسين محركات البحث (SEO)</strong>
+                        <div class="muted">On-page SEO، تسريع الموقع، إعداد sitemap وstructured data.</div>
+                    </li>
+                </ul>
+
+                <div style="margin-top:12px">
+                    <div class="price">الأسعار (مبدئية):</div>
+                    <div class="muted">موقع بسيط: <strong>1000 - 1500 ج.م</strong> — صفحات إضافية أو وظائف خاصة تسعر حسب
+                        الطلب.</div>
+                </div>
+
+                <div style="margin-top:14px" class="muted">
+                    <strong>ماذا أحتاج منك؟</strong>
+                    <ul style="margin:8px 0 0 18px">
+                        <li>نصوص وصور للموقع (أو أقدر أكتبها لك بزيادة سعر)</li>
+                        <li>دومين واستضافة (أرشدك لو محتاج مساعدة)</li>
+                        <li>تواصل سريع عبر الإيميل أو الواتساب لترتيب التفاصيل</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- الفورم على الشمال -->
+            <aside class="card form" aria-labelledby="form-title">
+                <h3 id="form-title">نموذج طلب خدمة</h3>
+                <form action="https://formspree.io/f/mdkdyekb" method="POST">
+                    <label for="name" class="muted">الاسم</label>
+                    <input id="name" name="name" type="text" placeholder="اسمك الكامل" required />
+
+                    <label for="email" class="muted">الإيميل</label>
+                    <input id="email" name="email" type="email" placeholder="email@example.com" required />
+
+                    <label for="service" class="muted">نوع الخدمة</label>
+                    <select id="service" name="service" required>
+                        <option value="">اختر الخدمة...</option>
+                        <option>تصميم موقع شخصي</option>
+                        <option>موقع تجاري / متجر بسيط</option>
+                        <option>تطوير واجهة تفاعلية</option>
+                        <option>تحسين SEO</option>
+                        <option>تعديل على موقع موجود</option>
+                    </select>
+
+                    <label for="message" class="muted">تفاصيل الطلب</label>
+                    <textarea id="message" name="message" placeholder="اكتب مختصر عن مشروعك، صفحات مطلوبة، وأي ملاحظات"
+                        required></textarea>
+
+                    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                        <button type="submit" class="btn">أرسل الطلب</button>
+                        <div class="muted" style="font-size:13px">أو تواصل عبر: <strong>email@yourdomain.com</strong>
+                        </div>
+                    </div>
+
+                    <div id="formFeedback" role="status" aria-live="polite" style="margin-top:10px"></div>
+                </form>
+
+                <div style="margin-top:12px" class="muted">
+                    <strong>عرض خاص لأول 5 عملاء:</strong>
+                    <div>خصم <strong>70%</strong> إذا دفعت عربون 30% قبل بدء العمل.</div>
+                </div>
+            </aside>
+        </div>
+
+        <footer style="margin-top:16px;text-align:center;color:rgba(255,255,255,0.55);font-size:13px">
+            © <span id="year"></span> أحمد عبدالجيد — حقوق الملكية محفوظة
+        </footer>
+    </div>
+
+    <script>
+        // السنة الحالية
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const form = document.querySelector('form'); // مفيش داعي لـ id خلاص
+        const feedback = document.getElementById('formFeedback');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // بنمنع الإرسال التقليدي عشان نتحكم فيه
+
+            const data = new FormData(form);
+
+            // التحقق من الحقول المطلوبة
+            if (!data.get('name') || !data.get('email') || !data.get('service')) {
+                feedback.innerHTML = '<div class="success" style="background:rgba(245,158,11,0.12);color:#ffdca8;padding:8px;border-radius:6px">من فضلك اكمل جميع الحقول المطلوبة.</div>';
+                return;
+            }
+
+            // إرسال البيانات لـ Formspree
+            const res = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+                feedback.innerHTML = '<div class="success">طلبك بقى عندي! هابعتلك تفاصيل الأسعار والوقت المطلوب على الإيميل قريبًا ✅</div>';
+                form.reset();
+            } else {
+                feedback.innerHTML = '<div class="success" style="background:rgba(239,68,68,0.12);color:#fecaca;padding:8px;border-radius:6px">حصل خطأ أثناء الإرسال، حاول تاني.</div>';
+            }
+        });
+    </script>
+</body>
+
+</html>

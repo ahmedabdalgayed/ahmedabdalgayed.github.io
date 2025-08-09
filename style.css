@@ -37,14 +37,14 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 14px;
 }
 
 .nav-links a {
@@ -213,45 +213,38 @@ section h2 {
         padding: 5px 10px;
         height: auto;
         flex-direction: row;
-        /* نخليه أفقي */
-    }
+     }
 
     .logo {
-        font-size: 16px;
-        /* ممكن تضيف margin لو محتاج */
-        margin-right: 10px;
+        font-size: 14px;
+         margin-right: 10px;
     }
 
     .nav-links {
         display: flex;
         flex-direction: row;
-        /* مهم جدا علشان اللينكات متكسرش */
-        flex-wrap: nowrap;
-        /* علشان ماينزلوش تحت بعض */
-        gap: 5px;
+         flex-wrap: nowrap;
+         gap: 1px;
     }
 
     .nav-links li {
-        font-size: 8px;
+        font-size: 6px;
         padding: 2px;
         white-space: nowrap;
-        /* علشان الكلام مايتكسرش */
-    }
+     }
 
 }
 
 @media (max-width: 344px) {
     .nav-links {
         gap: 1.5px;
-        /* نقلل الفراغ بين اللينكات */
-        justify-content: flex-end;
-        /* نخليهم يلزقوا في اليمين */
-        padding: 0;
+         justify-content: flex-end;
+         padding: 0;
         margin: 0;
     }
 
     .nav-links li {
-        font-size: 7px;
+        font-size: 5.5px;
         /* نضغط الخط شوية */
         padding: 2px;
     }
@@ -262,8 +255,7 @@ section h2 {
 }
 
 
-/* Media Query for Navbar on small screens */
-
+ 
 .nav-links.active {
     display: flex;
 }
@@ -334,3 +326,4 @@ section h2 {
     font-size: 19px;
     margin-top: 20px;
 }
+

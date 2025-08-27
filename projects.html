@@ -34,7 +34,7 @@
         }
 
         .my-name {
-            font-size: 20px;
+            font-size: 24px;
         }
 
         section {
@@ -44,7 +44,8 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            flex-direction: column;
+            /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
             gap: 25px;
             font-size: 20px;
         }
@@ -104,7 +105,7 @@
     </div>
 
     <!-- Projects Grid -->
-    <section>
+    <section id="sect">
         <div class="grid" id="projects-container">
         </div>
         <footer style="margin-top:16px;text-align:center;color:rgba(255,255,255,0.55);font-size:13px">

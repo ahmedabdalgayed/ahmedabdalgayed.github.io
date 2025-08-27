@@ -20,7 +20,7 @@
 
 <body>
     <!-- Navbar -->
-    <header>
+    <!-- <header>
         <nav class="navbar">
             <div class="logo"><span id="logg">Dre</span><span id="logg-a">a</span><span id="logg-2">mer</span></div>
             <ul class="nav-links">
@@ -33,7 +33,52 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+
+
+
+
+
+
+
+
+    <nav class="navbar">
+        <div class="logo"><span id="logg">Dre</span><span id="logg-a">a</span><span id="logg-2">mer</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">What I Do</a>
+            <a href="#resume">My Resume</a>
+            <a href="#projects">My projects</a>
+            <div id="moreBtn" class="more-btn">Click for more<span class="menu-icon">☰</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- سايد بار (من الشمال) -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-btn" id="closeSidebarBtn">×</button>
+        <h3>القائمة</h3>
+        <a href="#about">About</a>
+        <a href="#services">What I Do</a>
+        <a href="#resume">My Resume</a>
+        <a href="#projects">My projects</a>
+        <a href="#Request a Service">Request a Service</a>
+        <a href="#blog">The blog</a>
+        <a href="#contact">Contact</a>
+    </aside>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+
+
+
+
+
+
+
+
+
 
     <!-- Hero Section -->
     <section class="hero" id="about">
@@ -163,15 +208,65 @@
     </section>
 
     <div class="centered">
-        <p>Developed By <span id="spsp">Ahmed Abdalgayed</span></p>
+        <p id="devs">Developed By <span id="spsp">Ahmed Abdalgayed</span></p>
         <br>
         <p id="pp1234">الموقع لازال قيد التطوير</p>
         <br>
-        <footer style="margin-top:16px;text-align:center;color:rgba(255,255,255,0.55);font-size:13px">
+        <footer
+            style="margin-top:16px;text-align:center;color:rgba(255,255,255,0.55);font-size:13px; padding-bottom: 12px;">
             © <span id="year"></span> أحمد عبدالجيد — حقوق الملكية محفوظة
         </footer>
     </div>
 
+
+
+
+
+
+
+
+
+    <script>
+        // navvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const moreBtn = document.getElementById('moreBtn');
+        const closeBtn = document.getElementById('closeSidebarBtn');
+
+        function openSidebar() {
+            sidebar.classList.add('active');
+            overlay.classList.add('show');
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('show');
+        }
+        function toggleSidebar() {
+            sidebar.classList.contains('active') ? closeSidebar() : openSidebar();
+        }
+
+        // فتح وإغلاق
+        moreBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleSidebar(); });
+        closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeSidebar(); });
+
+        // إغلاق عند الضغط على أي مكان في الشاشة
+        overlay.addEventListener('click', closeSidebar);
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('active')
+                && !sidebar.contains(e.target)
+                && e.target !== moreBtn
+                && !moreBtn.contains(e.target)) {
+                closeSidebar();
+            }
+        });
+
+        // منع الإغلاق أثناء الضغط داخل السايدبار
+        sidebar.addEventListener('click', (e) => e.stopPropagation());
+
+        // إغلاق بـ Escape
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebar(); });
+        // navvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    </script>
 </body>
 </body>
 

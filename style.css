@@ -354,11 +354,23 @@ section h2 {
     .social-links a {
         font-size: 22px;
     }
+
+    .social-links {
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 @media (max-width: 344px) {
     .logo {
         font-size: 14px;
+    }
+
+    .social-links {
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 

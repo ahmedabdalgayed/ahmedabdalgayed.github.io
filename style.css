@@ -262,6 +262,9 @@ section:nth-child(odd) {
 #resume-p {
     font-size: 20px;
     padding: 5px;
+    letter-spacing: .7px;
+    word-spacing: 1px;
+    line-height: 1.4;
     font-weight: 400;
 }
 
@@ -395,7 +398,8 @@ section h2 {
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    background-color: #415a77;
+    background: linear-gradient(135deg, #0b132b, #1c2541);
+    color: #e0e1dd;
     font-weight: 300;
 }
 

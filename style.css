@@ -464,3 +464,25 @@ section h2 {
     font-size: 19px;
     margin-top: 20px;
 }
+
+/* 
+Update H1 in my hero */
+
+.typing-wrapper {
+    font-family: 'Rubik', sans-serif;
+    font-size: 32px;
+    color: #e5e7eb;
+}
+
+#typing-text {
+    border-right: 3px solid #38bdf8;
+    padding-right: 6px;
+    white-space: nowrap;
+    animation: typing-blink 0.8s infinite;
+}
+
+@keyframes typing-blink {
+    50% {
+        border-color: transparent;
+    }
+}

@@ -12,7 +12,7 @@
     <meta name="description"
         content="Official website of Ahmed Abdalgayed, a passionate web developer creating modern and responsive websites.">
     <meta name="keywords"
-        content="Ahmed Abdalgayed, Ahmed Ali, Ahmed Dremer ,Ahmed Abdalgayed Dremer, موقع احمد دريمر,احمد عبدالجيد دريمر  ,احمد عبدالجيد كودينج ,المبرمج احمد عبدالجيد,احمد عبدالجيد, موقع احمد عبدالجيد, web developer Egypt, personal portfolio ,احمد عبدالجيد">
+        content="Ahmed Abdalgayed, Ahmed Ali, Ahmed Dremer ,Ahmed Abdalgayed Dremer, موقع احمد دريمر,احمد عبدالجيد دريمر  ,احمد عبدالجيد كودينج ,المبرمج احمد عبدالجيد,احمد عبدالجيد, موقع احمد عبدالجيد, web developer Egypt, personal portfolio ,المبرمج احمد , المبرمج احمد علي , احمد علي , احمد عبدالجيد ,احمد عبدالجيد ">
     <meta name="author" content="Ahmed Abdalgayed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -50,7 +50,11 @@
 
     <!-- Hero Section -->
     <section class="hero" id="about">
-        <h1>Hi, I Am <span id="ss">Ahmed</span> Abdalgayed</h1>
+        <!-- <h1>Hi, I Am <span id="ss">Ahmed</span> Abdalgayed</h1> -->
+        <h1 class="typing-wrapper">
+            Hi, I Am <span id="typing-text"></span>
+        </h1>
+
         <p class="p123">I’m a passionate web developer creating sleek and practical digital experiences. I believe
             design isn’t just
             looks —
@@ -189,8 +193,7 @@
             <a target="_blank" href="https://www.instagram.com/ahmmedhmaid?igsh=b2ExeXpja2ttaDFt"><i
                     class="fab fa-instagram"></i></a>
             <a target="_blank" href="https://t.me/ahmmedhmaid"><i class="fab fa-telegram-plane"></i></a>
-            <a target="_blank"
-                href="https://www.linkedin.com/in/%D8%A7%D8%AD%D9%85%D8%AF-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%AC%D9%8A%D8%AF-7244ba379/"><i
+            <a target="_blank" href="https://www.linkedin.com/in/ahmed-abd-algayed-7244ba379/"><i
                     class="fab fa-linkedin-in"></i></a>
             <a target="_blank" href="mailto:ahmdlyahmedali9@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
@@ -246,6 +249,69 @@
 
         // إغلاق بـ Escape
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSidebar(); });
+
+        // update my h1 in hero
+        (function () {
+            const words = [
+                "Ahmed Abd-Algayed",
+                "Ahmed Dev",
+                "Ahmed Ali",
+                "Full Stack Developer"
+            ];
+
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            const typingSpeed = 100;
+            const deletingSpeed = 50;
+            const delayAfterTyping = 1200;
+
+            const el = document.getElementById("typing-text");
+            if (!el) return;
+
+            function typeEffect() {
+                let currentWord = words[wordIndex];
+
+                // قسم الكلمة الأولى عن باقي الجملة
+                let firstWord = currentWord.split(" ")[0];
+                let rest = currentWord.substring(firstWord.length);
+
+                if (!isDeleting) {
+                    // إذا بنكتب لأول مرة
+                    if (charIndex <= firstWord.length) {
+                        el.innerHTML = `<span style="color:#0077b6;">${firstWord.substring(0, charIndex)}</span>`;
+                    } else {
+                        el.innerHTML = `<span style="color:#0077b6;">${firstWord}</span>${rest.substring(0, charIndex - firstWord.length)}`;
+                    }
+                    charIndex++;
+
+                    if (charIndex > currentWord.length) {
+                        setTimeout(function () {
+                            isDeleting = true;
+                        }, delayAfterTyping);
+                    }
+
+                } else {
+                    if (charIndex > firstWord.length) {
+                        el.innerHTML = `<span style="color:#0077b6;">${firstWord}</span>${rest.substring(0, charIndex - firstWord.length)}`;
+                    } else {
+                        el.innerHTML = `<span style="color:#0077b6;">${firstWord.substring(0, charIndex)}</span>`;
+                    }
+                    charIndex--;
+
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
+                }
+
+                setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+            }
+
+            typeEffect();
+
+        })();
     </script>
 </body>
 </body>

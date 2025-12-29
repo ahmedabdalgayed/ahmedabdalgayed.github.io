@@ -254,8 +254,8 @@
         (function () {
             const words = [
                 "Ahmed Abd-Algayed",
-                "Ahmed Dev",
                 "Ahmed Ali",
+                "Ahmed Dev",
                 "Full Stack Developer"
             ];
 
@@ -263,22 +263,22 @@
             let charIndex = 0;
             let isDeleting = false;
 
-            const typingSpeed = 100;
-            const deletingSpeed = 50;
-            const delayAfterTyping = 1200;
+            const typingSpeed = 100;      // سرعة الكتابة
+            const deletingSpeed = 50;     // سرعة المسح
+            const delayAfterTyping = 800; // وقت التوقف بعد كتابة الكلمة
 
             const el = document.getElementById("typing-text");
             if (!el) return;
 
             function typeEffect() {
-                let currentWord = words[wordIndex];
+                const currentWord = words[wordIndex];
 
-                // قسم الكلمة الأولى عن باقي الجملة
-                let firstWord = currentWord.split(" ")[0];
-                let rest = currentWord.substring(firstWord.length);
+                // اللون للأول كلمة
+                const firstWord = currentWord.split(" ")[0];
+                const rest = currentWord.substring(firstWord.length);
 
                 if (!isDeleting) {
-                    // إذا بنكتب لأول مرة
+                    // الكتابة
                     if (charIndex <= firstWord.length) {
                         el.innerHTML = `<span style="color:#0077b6;">${firstWord.substring(0, charIndex)}</span>`;
                     } else {
@@ -287,12 +287,13 @@
                     charIndex++;
 
                     if (charIndex > currentWord.length) {
-                        setTimeout(function () {
-                            isDeleting = true;
-                        }, delayAfterTyping);
+                        // نوقف وقت قصير قبل المسح
+                        setTimeout(() => { isDeleting = true; typeEffect(); }, delayAfterTyping);
+                        return; // عشان ما يروحش للـ setTimeout في الأسفل قبل الوقت
                     }
 
                 } else {
+                    // المسح
                     if (charIndex > firstWord.length) {
                         el.innerHTML = `<span style="color:#0077b6;">${firstWord}</span>${rest.substring(0, charIndex - firstWord.length)}`;
                     } else {
@@ -300,9 +301,10 @@
                     }
                     charIndex--;
 
-                    if (charIndex === 0) {
+                    if (charIndex < 0) {
                         isDeleting = false;
                         wordIndex = (wordIndex + 1) % words.length;
+                        charIndex = 0;
                     }
                 }
 
@@ -310,7 +312,6 @@
             }
 
             typeEffect();
-
         })();
     </script>
 </body>

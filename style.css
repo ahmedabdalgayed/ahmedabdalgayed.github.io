@@ -481,6 +481,10 @@ Update H1 in my hero */
     animation: typing-blink 0.8s infinite;
 }
 
+
+
+
+
 @keyframes typing-blink {
     50% {
         border-color: transparent;
